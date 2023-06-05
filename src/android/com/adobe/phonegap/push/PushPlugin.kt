@@ -463,7 +463,7 @@ class PushPlugin : CordovaPlugin() {
 
         val token = try {
           try {
-            Tasks.await(FirebaseMessaging.getInstance().token)
+            Tasks.await(FirebaseMessaging.getInstance().getToken())
           } catch (e: ExecutionException) {
             throw e.cause ?: e
           }
@@ -616,7 +616,7 @@ class PushPlugin : CordovaPlugin() {
           unsubscribeFromTopics(topics)
         } else {
           try {
-            Tasks.await(FirebaseMessaging.getInstance().deleteToken())
+            Tasks.await(FirebaseMessaging.getInstance().deleteInstanceId())
           } catch (e: ExecutionException) {
             throw e.cause ?: e
           }
