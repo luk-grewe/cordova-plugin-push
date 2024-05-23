@@ -656,7 +656,7 @@ class FCMService : FirebaseMessagingService() {
     }
 
     val actions = extras.getString(PushConstants.ACTIONS)
-    Log.d(TAG, "-------ACTIONs: ", actions)
+    Log.d(TAG, actions)
     if (actions != null) {
       try {
         val actionsArray = JSONArray(actions)
