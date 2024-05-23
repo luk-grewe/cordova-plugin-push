@@ -659,11 +659,11 @@ class FCMService : FirebaseMessagingService() {
     }
 
     val actions = extras.getString(PushConstants.ACTIONS)
-    Log.d(TAG, '-------ACTIONs: ', Json.encodeToString(actions))
+    Log.d(TAG, "-------ACTIONs: ", actions)
     if (actions != null) {
       try {
         val actionsArray = JSONArray(actions)
-        Log.d(TAG, '-------ACTIONs: ', Json.encodeToString(actionsArray))
+
         val wActions = ArrayList<NotificationCompat.Action>()
 
         for (i in 0 until actionsArray.length()) {
