@@ -33,6 +33,9 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.security.SecureRandom
 import java.util.*
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.encodeToString
 
 /**
  * Firebase Cloud Messaging Service Class
@@ -656,9 +659,11 @@ class FCMService : FirebaseMessagingService() {
     }
 
     val actions = extras.getString(PushConstants.ACTIONS)
+    Log.d(TAG, '-------ACTIONs: ', Json.encodeToString(actions))
     if (actions != null) {
       try {
         val actionsArray = JSONArray(actions)
+        Log.d(TAG, '-------ACTIONs: ', Json.encodeToString(actionsArray))
         val wActions = ArrayList<NotificationCompat.Action>()
 
         for (i in 0 until actionsArray.length()) {
